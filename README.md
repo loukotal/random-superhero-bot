@@ -1,5 +1,5 @@
 # Random  superhero Mastodon bot
-
+The bot: https://botsin.space/web/accounts/89547
 ## Overview
 This is a fun project created to get my hands on and try out AWS - namely Lambda function. It uses `textgenrnn` library to generate new superhero names and dataset of superheroes [link](https://www.kaggle.com/claudiodavi/superhero-set#heroes_information.csv). It was trained on google colab with 10 epochs (just arbitraty number I chose, honestly).
 
