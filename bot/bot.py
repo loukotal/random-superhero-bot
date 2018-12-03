@@ -14,7 +14,7 @@ def lambda_handler(event, context):
     with open("../outputs/generated_names.txt", "r") as f:
         lines = f.readlines()
         heroes_list = [random.choice(lines) for _ in range(6)]
-        print(heroes_list)
+
     # heroes_names = textgenrnn(weights_path="heroes_textgen.hdf5", config_path="textgenrnn_config.json",
     #                           vocab_path="textgenrnn_vocab.json")
     # heroes_list = heroes_names.generate(5, return_as_list=True)
