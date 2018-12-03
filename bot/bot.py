@@ -1,6 +1,7 @@
 from mastodon import Mastodon
 import os
 import random
+
 # from textgenrnn import textgenrnn
 
 mastodon = Mastodon(
@@ -10,7 +11,7 @@ mastodon = Mastodon(
 
 
 def lambda_handler(event, context):
-    with open("../outputs/generated_names.txt","r") as f:
+    with open("../outputs/generated_names.txt", "r") as f:
         lines = f.readlines()
         heroes_list = [random.choice(lines) for _ in range(6)]
         print(heroes_list)
@@ -27,6 +28,10 @@ def lambda_handler(event, context):
 
 if __name__ == "__main__":
     pass
-    # heroes_names = textgenrnn(weights_path="heroes_textgen.hdf5", config_path="textgenrnn_config.json",
-    #                           vocab_path="textgenrnn_vocab.json")
-    # heroes_names.generate_to_file("generated_names.txt", n=10000, temperature=1)
+    # LOAD THE TRAINED MODEL
+    # heroes_names = textgenrnn(weights_path="..weights/heroes_textgen.hdf5",
+    #                           config_path="..weights/textgenrnn_config.json",
+    #                           vocab_path="..weights/textgenrnn_vocab.json")
+    #
+    # GENERATE THE NAMES
+    # heroes_names.generate_to_file("../outputs/generated_names.txt", n=10000, temperature=1)
