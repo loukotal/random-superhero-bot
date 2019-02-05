@@ -1,6 +1,6 @@
 from flask import Flask, request
 
-from src.bot.bot import heroes_names
+from bot.bot import heroes_names
 
 app = Flask(__name__)
 
