@@ -4,16 +4,16 @@ import random
 
 from textgenrnn import textgenrnn
 
-from src.settings import MASTODON_API_URL
+# from app.settings import MASTODON_API_URL
 
 mastodon = Mastodon(
     # access_token=os.getenv("MASTODON_ACCESS_KEY"),
     access_token="0efddcc59647b1713e405e2460c48f402ed0423e0eea1068863465716d0f78b7",
-    api_base_url=MASTODON_API_URL
+    api_base_url="https://botsin.space"
 )
 
-heroes_names = textgenrnn(weights_path="/weights/heroes_textgen.hdf5", config_path="textgenrnn_config.json",
-                          vocab_path="/weights/textgenrnn_vocab.json")
+heroes_names = textgenrnn(weights_path="weights/heroes_textgen.hdf5", config_path="weights/textgenrnn_config.json",
+                          vocab_path="weights/textgenrnn_vocab.json")
 
 
 def lambda_handler(event, context):
