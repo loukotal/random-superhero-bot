@@ -22,4 +22,15 @@ Another useful links for AWS Lambda and Python
 - [Serving TF predictions with Lambda and Python](https://medium.com/tooso/serving-tensorflow-predictions-with-python-and-aws-lambda-facb4ab87ddd)
 
 ## Possible improvements
-I can an improvement in actually generating the output when the function is run - that would mean, I think, to build tensorflow and other big libraries that are being used from source. Or maybe developing simple REST api (maybe using Flask?) on EC2 and calling it from the Lambda function.
+I can see an improvement in actually generating the output when the function is run - that would mean, I think, to build tensorflow and other big libraries that are being used from source. Or maybe developing simple REST api (maybe using Flask?) on EC2 and calling it from the Lambda function.
+
+
+## Docker
+Useful links:
+    - [dockerizing python apps](https://stackabuse.com/dockerizing-python-applications/)
+    - [flask apps in Docker](https://www.fullstackpython.com/blog/develop-flask-web-apps-docker-containers-macos.html)
+    - [serving and deploying keras models](https://medium.com/@joelognn/serving-and-deploying-keras-models-using-flask-uwsgi-nginx-and-docker-810fa1864cec)
+
+In folder with Dockerfile: `docker build -t randomsuperhero:latest .`
+
+Running bash in the container: `docker run -i -t radnomsuperhero:latest /bin/bash`
