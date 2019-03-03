@@ -1,0 +1,14 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Image": {
+    "Name": "lukasloukota/randomsuperhero",
+    "Update": "true"
+  },
+  "Ports": [
+    {
+      "ContainerPort": "5000"
+    }
+  ],
+  "Entrypoint": "gunicorn",
+  "Command": "--bind 0.0.0.0:5000 wsgi"
+}
