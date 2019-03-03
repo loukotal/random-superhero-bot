@@ -1,9 +1,10 @@
-from flask import Flask, request
-
+from flask import Flask, request, Response
 from bot.bot import heroes_names
+import os
 
 app = Flask(__name__)
 
+auth_key = os.getenv("AUTH_KEY")
 
 @app.route("/", methods=["GET"])
 def index():
@@ -15,9 +16,24 @@ def index():
 def generate_one():
     # TODO: Add some sort of authorization for generating?
     if request.method == "POST":
-        print(heroes_names.generate())
-        print("WTF")
+        prediction = heroes_names.generate(n=1, return_as_list=True)
 
+        return Response(prediction[0])
+
+@app.route("/post/", methods=["POST"])
+def post_toot():
+    if request.method == "POST":
+        data = request.get_json()
+
+        auth = data.get("auth")
+
+        if auth != auth_key:
+            return Response(status=401)
+
+
+        prediction = heroes_names.generate(n=1, return_as_list=True)
+        # mastodon.status_post("New superhero on the block!\n\n{}".format(prediction))
+        return Response(prediction[0])
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0")
+    app.run(debug=True, host="0.0.0.0", port=5000)

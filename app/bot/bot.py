@@ -15,6 +15,7 @@ mastodon = Mastodon(
 heroes_names = textgenrnn(weights_path="weights/heroes_textgen.hdf5", config_path="weights/textgenrnn_config.json",
                           vocab_path="weights/textgenrnn_vocab.json")
 
+heroes_names.generate()
 
 def lambda_handler(event, context):
     with open("../outputs/generated_names.txt", "r") as f:
