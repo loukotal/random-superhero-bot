@@ -13,7 +13,5 @@ RUN pip3 install tensorflow
 
 ADD ./ /code/
 
-WORKDIR /code
+WORKDIR /code/app
 
-
-CMD ["python3 app/app.py"]
