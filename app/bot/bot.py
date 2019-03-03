@@ -6,7 +6,7 @@ from textgenrnn import textgenrnn
 
 # from app.settings import MASTODON_API_URL
 
-mastodon = Mastodon(
+mastodon_inst = Mastodon(
     # access_token=os.getenv("MASTODON_ACCESS_KEY"),
     access_token="0efddcc59647b1713e405e2460c48f402ed0423e0eea1068863465716d0f78b7",
     api_base_url="https://botsin.space"
@@ -26,7 +26,7 @@ def lambda_handler(event, context):
     #                           vocab_path="textgenrnn_vocab.json")
     # heroes_list = heroes_names.generate(5, return_as_list=True)
     heroes = "\n".join(heroes_list)
-    mastodon.status_post("New superheroes on the block!\n\n{}".format(heroes))
+    mastodon_inst.status_post("New superheroes on the block!\n\n{}".format(heroes))
     return {
         "statusCode": 200,
         "body": "{}".format(heroes)

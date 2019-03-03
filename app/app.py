@@ -1,5 +1,5 @@
 from flask import Flask, request, Response
-from bot.bot import heroes_names
+from bot.bot import heroes_names, mastodon_inst
 import os
 
 app = Flask(__name__)
@@ -32,7 +32,7 @@ def post_toot():
 
 
         prediction = heroes_names.generate(n=1, return_as_list=True)
-        # mastodon.status_post("New superhero on the block!\n\n{}".format(prediction))
+        mastodon_inst.status_post("New superhero on the block!\n\n{}".format(prediction))
         return Response(prediction[0])
 
 if __name__ == "__main__":
